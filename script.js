@@ -13,14 +13,29 @@ function writePassword() {
 function generatePassword() {
   
   var pwdLength = prompt("Between 8 and 128 how long would you like your password to be?")
-
+  
   while (pwdLength < 8 || pwdLength > 128) {
     alert("Your password must be a number between 8 and 128, try again.")
     pwdLength = prompt("Between 8 and 128 how long would you like your password to be?")
   }
+  
+  var wantsUpper = confirm("Do you want uppercase letters?")
+  var wantsLower = confirm("Do you want lowercase letters?")
+  var wantsNum = confirm("Do you want numbers?")
+  var wantsSpecial = confirm("Do you want special characters?")
 
-  console.log(pwdLength)
+  while(!wantsUpper && !wantsLower && !wantsNum && !wantsSpecial) {
+    alert("You must choose at least one character type.")
+    wantsUpper = confirm("Do you want uppercase letters?")
+    wantsLower = confirm("Do you want lowercase letters?")
+    wantsNum = confirm("Do you want numbers?")
+    wantsSpecial = confirm("Do you want special characters?")
+  }
+  
 }
+
+
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
