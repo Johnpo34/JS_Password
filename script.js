@@ -11,6 +11,13 @@ function writePassword() {
 }
 
 function generatePassword() {
+  var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  var lower = "abcdefghijklmnopqrstuvwxyz"
+  var numbers = "1234567890"
+  var special = "!@#$%^&*()"
+
+  var password = ""
+  var characters = ""
   
   var pwdLength = prompt("Between 8 and 128 how long would you like your password to be?")
   
@@ -31,11 +38,25 @@ function generatePassword() {
     wantsNum = confirm("Do you want numbers?")
     wantsSpecial = confirm("Do you want special characters?")
   }
+
+  if (wantsUpper) {
+    characters += upper
+  }
+  if (wantsLower) {
+    characters += lower
+  }
+  if (wantsNum) {
+    characters += numbers
+  }
+  if (wantsSpecial) {
+    characters += special
+  }
   
+  for (var i = 0; i < pwdLength; i++) {
+    password += characters.charAt(Math.floor(Math.random() * characters.length))
+  }
+  return password
 }
-
-
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
