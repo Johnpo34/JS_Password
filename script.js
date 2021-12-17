@@ -9,7 +9,7 @@ function writePassword() {
   passwordText.value = password;
 
 }
-
+// create a function to generate a password with certain requirements
 function generatePassword() {
   var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   var lower = "abcdefghijklmnopqrstuvwxyz"
@@ -20,7 +20,7 @@ function generatePassword() {
   var characters = ""
   
   var pwdLength = prompt("Between 8 and 128 how long would you like your password to be?")
-  
+  // set paramaters for password length
   while (pwdLength < 8 || pwdLength > 128) {
     alert("Your password must be a number between 8 and 128, try again.")
     pwdLength = prompt("Between 8 and 128 how long would you like your password to be?")
